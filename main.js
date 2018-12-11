@@ -123,6 +123,7 @@ var app = new Vue({
         },
         chamber: "",
         url: "",
+        loading_finished:false,
 
 
     },
@@ -222,7 +223,10 @@ var app = new Vue({
 
                 this.chamber_statistics.most_engaged_members = compareNext(engaged_sorted_list, target_index);
                 this.chamber_statistics.least_engaged_members = comparePrev(engaged_sorted_list, loyalty_sorted_list.length - 1 - target_index);
-
+                
+                
+                //Finished all calculation so loader can hide now
+                this.loading_finished=true;
             }
 
         }

@@ -12,11 +12,12 @@
 
 @media screen and (max-width: 768px) {
     .general-wrapper {
-        width: 100%; !important
+        width: 100%;
+         !important
     }
 }
 
-.logo-image{
+.logo-image {
     width: 200px;
 }
 
@@ -28,34 +29,37 @@
     border: 1px solid red;
 }
 
-.sticky-head th{
+.sticky-head th {
     position: sticky;
     top: 110px;
     background: white;
 
 }
+
 @media screen and (max-width: 847px) {
     .sticky-head th {
         top: 145px;
         overflow-y: visible;
 
     }
-    .table-responsive-sm th{
+
+    .table-responsive-sm th {
         overflow-x: visible;
     }
 }
 
 @media screen and (max-width: 575px) {
-     .sticky-head th {
+    .sticky-head th {
         top: 155px;
     }
 }
 
 @media screen and (max-width: 470px) {
-     .sticky-head th {
+    .sticky-head th {
         top: 165px;
     }
-    .table tbody{
+
+    .table tbody {
         overflow-x: hidden;
     }
 }
@@ -65,4 +69,111 @@
     top: 58px;
     background: white;
     z-index: 1070;
+}
+
+/*Loader CSS*/
+.loader-bg-color{
+/*   background: linear-gradient(0.25turn, transparent, #ece6e6,#ece6e6,transparent);*/
+    
+    
+}
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+/*    height: 164px;*/
+    margin: auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 8vw;
+    height: 8vw;
+    min-width: 51px;
+    min-height: 51px;
+    margin: 6px;
+    border: 6px solid #d85a48;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #d85a48 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+
+/*OTHER LOADER*/
+.loader {
+  position: relative;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-gap: 2px;
+  width: 100px;
+  height: 100px;
+}
+.loader > div {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: tomato;
+  transform: scale(0);
+  transform-origin: center center;
+  animation: loader 2s infinite linear;
+}
+.loader > div:nth-of-type(1), .loader > div:nth-of-type(5), .loader > div:nth-of-type(9) {
+  animation-delay: 0.4s;
+}
+.loader > div:nth-of-type(4), .loader > div:nth-of-type(8) {
+  animation-delay: 0.2s;
+}
+.loader > div:nth-of-type(2), .loader > div:nth-of-type(6) {
+  animation-delay: 0.6s;
+}
+.loader > div:nth-of-type(3) {
+  animation-delay: 0.8s;
+}
+
+@keyframes loader {
+  0% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
 }

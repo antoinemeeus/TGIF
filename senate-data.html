@@ -81,32 +81,51 @@
         <main class="container-fluid" role="main" id="app">
             <section>
 
-                <div class="pt-5 col col-lg-7 col-sm-10">
+                <div class="row d-flex justify-content-between">
+                    <div class="pt-5 col-auto col-lg-7 col-sm-10">
 
 
-                    <h2>Senators</h2>
-                    <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+                        <h2>Senators</h2>
+                        <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
 
 
+                    </div>
+                    <div class="pt-5 col-auto col-lg-5 col-sm-2">
+                        <div v-if="!loading_finished" id="loader" class="container h-100 align-items-stretch">
+                            <div class="h-100 py-2 d-flex align-self-stretch align-items-sm-center loader-bg-color justify-content-center">
+                                <!--                            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>-->
+                                <div class="loader">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </section>
-
-
 
             <div class="row pt-3 pb-3 px-2 bg-white stickey-form justify-content-between">
                 <div class="form-inline">
                     <div class="col-auto">Filter by Party:</div>
                     <div class="col-auto">
                         <label class="form-check-label" for="republicanCheckBox">
-                            <input class="form-check-input" type="checkbox" name="filter_Party" value="R" v-model="party_filters" > Republican</label>
+                            <input class="form-check-input" type="checkbox" name="filter_Party" value="R" v-model="party_filters"> Republican</label>
                     </div>
                     <div class="col-auto">
                         <label class="form-check-label" for="democratCheckBox">
-                            <input class="form-check-input" type="checkbox" name="filter_Party" value="D" v-model="party_filters" > Democrat</label>
+                            <input class="form-check-input" type="checkbox" name="filter_Party" value="D" v-model="party_filters"> Democrat</label>
                     </div>
                     <div class="col-auto">
                         <label class="form-check-label" for="independentCheckBox">
-                            <input class="form-check-input" type="checkbox" name="filter_Party" value="I" v-model="party_filters" > Independent </label>
+                            <input class="form-check-input" type="checkbox" name="filter_Party" value="I" v-model="party_filters"> Independent </label>
                     </div>
                 </div>
 
@@ -114,7 +133,7 @@
                 <div class="form-inline">
                     <div class="col-auto">Filter by State: </div>
                     <select class="custom-select" v-model="state_filter">
-                        <option value="All" > Select All </option>
+                        <option value="All"> Select All </option>
                         <option v-for="state in sortedStates" v-bind:value="state">{{getStateFullName(state)}}</option>
                     </select>
                 </div>
@@ -130,7 +149,7 @@
                             <th>Years in Ofice</th>
                             <th>% Vote w/ Party</th>
                         </thead>
-                        <tbody>
+                        <tbody v-if="loading_finished">
                             <tr v-for="value in upToDateTable">
                                 <td>
                                     <a v-bind:href="value.url" target="_blank"> {{value.first_name}} {{value.middle_name}} {{value.last_name}}</a>

@@ -80,15 +80,34 @@
         <!--Table container-->
         <main class="container-fluid" role="main" id="app">
             <section>
-
-                <div class="pt-5 col col-lg-7 col-sm-10">
-
-
-                    <h2>Congressmen</h2>
-                    <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
-                    <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
+                <div class="row d-flex justify-content-between">
+                    <div class="pt-5 col col-lg-7 col-sm-10">
 
 
+                        <h2>Congressmen</h2>
+                        <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
+                        <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
+
+
+                    </div>
+                    <div class="pt-5 col-auto col-lg-5 col-sm-2">
+                        <div v-if="!loading_finished" id="loader" class="container h-100 align-items-stretch">
+                            <div class="h-100 py-2 d-flex align-self-stretch align-items-sm-center loader-bg-color justify-content-center">
+                                <!--                            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>-->
+                                <div class="loader">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -131,7 +150,7 @@
                             <th>Years in Ofice</th>
                             <th>% Vote w/ Party</th>
                         </thead>
-                        <tbody>
+                        <tbody v-if="loading_finished">
                             <tr v-for="value in upToDateTable">
                                 <td>
                                     <a v-bind:href="value.url" target="_blank"> {{value.first_name}} {{value.middle_name}} {{value.last_name}}</a>
@@ -169,12 +188,11 @@
         <!-- Footer -->
     </div>
 
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>    
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="main.js"></script>
 
     <script>
         feather.replace()
-
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
