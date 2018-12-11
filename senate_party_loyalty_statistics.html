@@ -9,10 +9,9 @@
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-
     <script src="https://unpkg.com/feather-icons"></script>
 
-    <title>Senate Data</title>
+    <title>Senate Data Party Loyalty Statistics</title>
 </head>
 
 <body>
@@ -33,7 +32,7 @@
                     <a href="mailto:paula.davis@gmail.com">info@tgif.net</a></span>
             </div>
         </header>
-        <nav class="navbar navbar-top navbar-expand-md my-8 navbar-dark bg-dark">
+        <nav class="navbar navbar-top  navbar-expand-md my-8 navbar-dark bg-dark">
             <a class="navbar-brand" href="#">TGIF</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,10 +43,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Congress 113</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item active" href="senate-data.html">Senate</a>
+                            <a class="dropdown-item" href="senate-data.html">Senate</a>
                             <a class="dropdown-item" href="house-data.html">House</a>
                         </div>
                     </li>
@@ -55,14 +54,14 @@
                         <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Attendance</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                             <a class="dropdown-item " href="senate_attendance_statistics.html">Senate</a>
-                            <a class="dropdown-item" href="#">House</a>
+                            <a class="dropdown-item" href="house_attendance_statistics.html">House</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Loyalty</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item " href="senate_party_loyalty_statistics.html">Senate</a>
-                            <a class="dropdown-item" href="#">House</a>
+                            <a class="dropdown-item active" href="senate_party_loyalty_statistics.html">Senate</a>
+                            <a class="dropdown-item" href="house_party_loyalty_statistics.html">House</a>
                         </div>
                     </li>
                 </ul>
@@ -79,78 +78,78 @@
 
         <!--Table container-->
         <main class="container-fluid" role="main" id="app">
-            <section>
 
-                <div class="pt-5 col col-lg-7 col-sm-10">
+            <div class="row pt-5">
+                <div class="col-6">
+                    <section>
 
-
-                    <h2>Senators</h2>
-                    <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
-
+                        <h2>Party Loyalty</h2>
+                        <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
+                    </section>
 
                 </div>
-            </section>
-
-
-
-            <div class="row pt-3 pb-3 px-2 bg-white stickey-form justify-content-between">
-                <div class="form-inline">
-                    <div class="col-auto">Filter by Party:</div>
-                    <div class="col-auto">
-                        <label class="form-check-label" for="republicanCheckBox">
-                            <input class="form-check-input" type="checkbox" name="filter_Party" value="R" v-model="party_filters" > Republican</label>
-                    </div>
-                    <div class="col-auto">
-                        <label class="form-check-label" for="democratCheckBox">
-                            <input class="form-check-input" type="checkbox" name="filter_Party" value="D" v-model="party_filters" > Democrat</label>
-                    </div>
-                    <div class="col-auto">
-                        <label class="form-check-label" for="independentCheckBox">
-                            <input class="form-check-input" type="checkbox" name="filter_Party" value="I" v-model="party_filters" > Independent </label>
-                    </div>
-                </div>
-
-
-                <div class="form-inline">
-                    <div class="col-auto">Filter by State: </div>
-                    <select class="custom-select" v-model="state_filter">
-                        <option value="All" > Select All </option>
-                        <option v-for="state in sortedStates" v-bind:value="state">{{getStateFullName(state)}}</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table data-table table-hover">
-                        <thead rol="row" class="pt-3 bg-white sticky-head">
-                            <th>Senator</th>
-                            <th>Party</th>
-                            <th>State</th>
-                            <th>Years in Ofice</th>
-                            <th>% Vote w/ Party</th>
+                <div class="col-sm-6">
+                    <h2>Senate at a glance</h2>
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Party</th>
+                                <th>Number of Reps</th>
+                                <th>% Voted with Prty</th>
+                            </tr>
                         </thead>
-                        <tbody>
-                            <tr v-for="value in upToDateTable">
-                                <td>
-                                    <a v-bind:href="value.url" target="_blank"> {{value.first_name}} {{value.middle_name}} {{value.last_name}}</a>
-                                </td>
-                                <td>{{value.party}}</td>
-                                <td>{{value.state}}</td>
-                                <td>{{value.seniority}}</td>
-                                <td>{{value.votes_with_party_pct}}%</td>
+                        <tbody id="tbody_glance">
+                            <tr v-for="(value,key) in get_partyInfo">
+                                <td>{{key}}</td>
+                                <td>{{value.number}}</td>
+                                <td>{{value.average}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
             </div>
-            <div v-if="upToDateTable.length <= 0" class="row">
-                <div class="col-12 text-center">
-                    <div class="alert alert-warning" role="alert">
-                        <span class="h5 ">Oh snap! No members found! Please try another combination of filters.</span>
-                    </div>
+
+            <div class="row pt-5 pb-3 px-2 bg-white  justify-content-between">
+                <div class="col-sm-6">
+                    <h2>Least Loyal (Bottom 10% of Party)</h2>
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Number Party Votes</th>
+                                <th>% Party Votes</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_least_loyal">
+                            <tr v-for="(value,key) in get_leastLoyal">
+                                <td><a v-bind:href="value.url" target="_blank"> {{value.first_name}} {{value.middle_name}} {{value.last_name}}</a></td>
+                                <td>{{value.total_votes}}</td>
+                                <td>{{value.votes_with_party_pct}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
+                <div class="col-sm-6">
+                    <h2>Most Loyal (Top 10% of Party)</h2>
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Number Party Votes</th>
+                                <th>% Party Votes</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_most_loyal">
+                            <tr v-for="(value,key) in get_mostLoyal">
+                                <td><a v-bind:href="value.url" target="_blank"> {{value.first_name}} {{value.middle_name}} {{value.last_name}}</a></td>
+                                <td>{{value.total_votes}}</td>
+                                <td>{{value.votes_with_party_pct}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </main>
@@ -168,11 +167,10 @@
     </div>
 
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <!--    <script src="ressources/data/pro-congress-113-senate.js"></script>-->
     <script src="main.js"></script>
 
     <script>
-        feather.replace();
+        feather.replace()
 
     </script>
 

@@ -30,7 +30,7 @@
 
 .sticky-head th{
     position: sticky;
-    top: 105px;
+    top: 110px;
     background: white;
 
 }
@@ -62,7 +62,7 @@
 
 .stickey-form {
     position: sticky;
-    top: 20px;
+    top: 58px;
     background: white;
-    z-index: 9000;
+    z-index: 1070;
 }
