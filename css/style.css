@@ -18,7 +18,8 @@
 }
 
 .logo-image {
-    width: 200px;
+    width: 40vw;
+    max-width: 200px;
 }
 
 .navbar-top {
@@ -31,45 +32,27 @@
 
 .sticky-head th {
     position: sticky;
-    top: 110px;
+    top: 183px;
     background: white;
-
+    
 }
 
-@media screen and (max-width: 847px) {
-    .sticky-head th {
-        top: 145px;
-        overflow-y: visible;
 
-    }
 
-    .table-responsive-sm th {
-        overflow-x: visible;
-    }
-}
-
-@media screen and (max-width: 575px) {
-    .sticky-head th {
-        top: 155px;
-    }
-}
-
-@media screen and (max-width: 470px) {
-    .sticky-head th {
-        top: 165px;
-    }
-
-    .table tbody {
-        overflow-x: hidden;
-    }
-}
-
-.stickey-form {
-    position: sticky;
+.sticky-top-form {
     top: 58px;
     background: white;
-    z-index: 1070;
+    z-index: 1020;
 }
+
+
+
+/* MODAL CLASS*/
+
+.vuedal header{
+    text-align: center;
+}
+
 
 /*Loader CSS*/
 .loader-bg-color{
